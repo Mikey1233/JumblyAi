@@ -70,7 +70,7 @@ const Camp = () => {
           <h2 className="regular-24 md:regular-32 2xl:regular-64 capitalize text-white">
             <strong>Learn How</strong> 
           </h2>
-          <p className="text-white regular-24 xl:regular-28 pb-5">jumble.AI is revolutionizing International Business</p>
+          <p className="text-white regular-24 xl:regular-28 pb-5">jumbly.AI is revolutionizing International Business</p>
 
           <Image 
             src="/quote.svg"
