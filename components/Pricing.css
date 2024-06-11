@@ -1,0 +1,150 @@
+/* src/components/Pricing.css */
+.pricing {
+  text-align: center;
+  padding: 2rem 0 10rem; /* Add extra padding to the bottom */
+
+}
+
+.pricing h2 {
+  font-size: 4.5rem; /* Increase font size */
+  font-weight: bold; /* Make the header bold */
+  margin-bottom: 2rem;
+}
+
+.pricing-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.pricing-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 2rem;
+  width: 400px; /* Adjust width as needed */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  position: relative;
+  text-align: left;
+}
+
+.pricing-card h3,
+.pricing-card p {
+  font-weight: bold; /* Make text bold */
+  font-size: 1.1rem; /* Increase font size */
+}
+
+.pricing-card .price {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.pricing-card .description {
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.pricing-card button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+  text-align: center;
+  margin-top: 2rem; /* Add margin to the top */
+  margin-bottom: 2rem; /* Add margin to the bottom */
+}
+
+.pricing-card button:hover {
+  background-color: #218838;
+}
+
+.pricing-card .badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #ffc107;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.pricing-card h3 {
+  margin-top: 0;
+  font-size: 2rem; /* Increase font size */
+  font-weight: bold; /* Make the title bold */
+  color: #333;
+  margin-bottom: 1rem; /* Add margin to create space between title and price */
+}
+
+
+.pricing-card .price {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.pricing-card ul {
+  margin-top: 1rem; /* Add margin to create space between price and features */
+  list-style-type: disc; /* Add bullet points */
+  padding-left: 1.5rem; /* Add some left padding for bullet points */
+}
+
+.pricing-card ul li {
+  margin-bottom: 0.5rem; /* Add margin between each feature */
+}
+
+.medal-icon {
+  color: gold; /* Customize the color of the medal icon */
+  margin-right: 0.5rem; /* Add margin to create space between the icon and the title */
+}
+
+
+.pricing-card {
+  position: relative; /* Position the parent container relative */
+}
+
+.logo-image {
+  max-width: 200px; /* Adjust the max-width as needed */
+  max-height: 200px; /* Adjust the max-height as needed */
+}
+
+.logos-container {
+  display: flex;
+  justify-content: center;
+}
+
+.logo-item {
+  margin: 0 10px; /* Adjust the margin as needed */
+}
+
+.grayscale {
+  filter: grayscale(100%);
+  opacity: 0.5; /* Adjust the opacity as needed */
+}
+
+.homepage_logos-section h2 {
+  font-size: 1.8rem; /* Adjust the font size as needed */
+}
+
+.homepage_logos-section {
+  padding: 4rem 0; /* Adjust the padding as needed */
+  border-top: 1px solid #ddd; /* Add a top border */
+  border-bottom: 1px solid #ddd; /* Add a bottom border */
+}
+
+.logo-item {
+  margin: 0 25px; /* Adjust the margin as needed */
+}
+
+.logo-item img {
+  height: 80px; /* Adjust the height as needed */
+  width: auto; /* Ensure aspect ratio is maintained */
+}
