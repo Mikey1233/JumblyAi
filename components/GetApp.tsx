@@ -1,6 +1,6 @@
-import React from 'react'
-import Button from './Button'
-import Image from 'next/image'
+import React from "react";
+import Button from "./ButtonDefault";
+import Image from "next/image";
 
 const GetApp = () => {
   return (
@@ -8,16 +8,18 @@ const GetApp = () => {
       <div className="get-app">
         <div className="z-20 flex w-full flex-1 flex-col items-start justify-center gap-12">
           <h2 className="bold-40 lg:bold-64 xl:max-w-[320px]">Signup Now!</h2>
-          <p className="regular-16 text-gray-10">Available on all web platforms.</p>
+          <p className="regular-16 text-gray-10">
+            Available on all web platforms.
+          </p>
           <div className="flex w-full flex-col gap-3 whitespace-nowrap xl:flex-row">
-            <Button 
+            <Button
               type="button"
               title="Join Now"
               icon="/calendar-black.svg"
               variant="btn_white"
               full
             />
-            <Button 
+            <Button
               type="button"
               title="Contact Us"
               icon="/map.svg"
@@ -32,7 +34,7 @@ const GetApp = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default GetApp
+export default GetApp;

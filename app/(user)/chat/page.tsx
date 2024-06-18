@@ -1,9 +1,15 @@
 import React from 'react'
-
-function page() {
+import ChatList from '../../../components/ChatList'
+type props = {
+  params: {};
+  searchParams: {
+    error: string;
+  };
+};
+function page({ searchParams: { error } }: props) {
   return (
     <div>
-      
+     <ChatList/> 
     </div>
   )
 }
