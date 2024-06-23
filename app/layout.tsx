@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
-
-
+// import SignInWithClerk from "@/components/clerkAuthSign";
+import SignInWithClerk from "@/pages/clerkAuthSign";
 
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -19,13 +19,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider >
+    <ClerkProvider>
       <html lang="en">
-        
         <body>
+          <SignInWithClerk />
+
           <Navbar />
           <main className="relative overflow-hidden">{children}</main>
-          <Toaster/>
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>

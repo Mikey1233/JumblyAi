@@ -21,7 +21,7 @@ const formSchema = z.object({
 
 function ChatInput({ chatId }: { chatId: string }) {
   // const { data: session } = useSession();
-  console.log(chatId)
+  // console.log(chatId)
   const { session } = useSession()
   const { toast } = useToast();
   const subscription = useSubscriptionStore((state) => state.subscription);

@@ -1,3 +1,4 @@
+
 import React from 'react'
 import ChatList from '../../../components/ChatList'
 type props = {
@@ -6,7 +7,11 @@ type props = {
     error: string;
   };
 };
+
+
 function page({ searchParams: { error } }: props) {
+
+
   return (
     <div>
      <ChatList/> 

@@ -2,19 +2,36 @@
 import { NAV_LINKS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
-import Button from "./ButtonDefault"
-import {
-  useSession,
-  SignedIn,
-  SignIn,
-  UserButton,
-  useAuth,
-} from "@clerk/nextjs";
+import Button from "./ButtonDefault";
+import { useAuth } from "@clerk/nextjs";
+import { signInWithCustomToken } from "firebase/auth";
+import { auth } from "@/firebase";
+import { useSession, SignedIn, SignIn, UserButton,useSignUp } from "@clerk/nextjs";
 import { MessageSquareIcon } from "lucide-react";
 import CreateChatButton from "./CreateChatButton";
+import { teardownHeapProfiler } from "next/dist/build/swc";
+import { onAuthStateChanged } from "firebase/auth";
+import { useEffect } from "react";
+// import SignInWithClerk from "./clerkAuthSign";
 
 const Navbar = () => {
+ 
+
   const { isSignedIn } = useSession();
+
+  const { getToken } = useAuth();
+  const signInWithClerk = async () => {
+    try {
+      
+      console.log("Sign in with clerk");
+      const token = await getToken({ template: "integration_firebase" }) as string;
+      console.log(token)
+      const userCredentials = await signInWithCustomToken(auth, token);
+      console.log("User:", userCredentials.user);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   //  console.log(useSession())
   //  console.log('hello')
   return (
@@ -31,22 +48,19 @@ const Navbar = () => {
         className="inline-block cursor-pointer lg:hidden"
       /> */}
       <div className="flex gap-10 items-center justify-between ">
-        {
-          isSignedIn && (
-            <>
-              <CreateChatButton />
-  
-              <Link href={"/chat"} prefetch={false}>
-                <MessageSquareIcon className="text-bold" />
-              </Link>
-            </>
-          )
-        }
+        {isSignedIn && (
+          <>
+            <CreateChatButton />
+
+            <Link href={"/chat"} prefetch={false}>
+              <MessageSquareIcon className="text-bold" />
+            </Link>
+          </>
+        )} 
         {!isSignedIn && (
           <Link href={"/chat"}>
-            {" "}
+             {" "}
             <div className="lg:flexCenter hidden">
-              {/* <button></button> */}
               <Button
                 type="button"
                 title="Login"
@@ -55,15 +69,8 @@ const Navbar = () => {
                 title2="/signup"
               />
             </div>
-          </Link>
-        ) }
-
-        {/* <SignedOut>
-       
-
-         <SignInButton /> 
-      </SignedOut> */}
-
+           </Link>
+        )}
         <SignedIn>
           <UserButton />
         </SignedIn>

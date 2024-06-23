@@ -1,40 +1,53 @@
-// import { WebhookEvent } from "@clerk/clerk-sdk-node";
 import { WebhookEvent } from "@clerk/nextjs/server";
-import { auth } from "@/firebase-admin";
-import { adminDB } from "@/firebase-admin";
-
+import { doc, updateDoc, getDoc, setDoc } from "firebase/firestore";
 import { CreateRequest } from "firebase-admin/auth";
-import { NextApiRequest } from "next";
-// import { RESPONSE_LIMIT_DEFAULT } from "next/dist/server/api-utils";
+import { syncUserToFirebase } from "@/lib/syncUsers";
+import { db } from "@/firebase";
+import { NextResponse } from "next/server";
+import { deleteUser } from "@/lib/deleteAuthFromFB";
 
 export async function POST(request: Request) {
   const payload: WebhookEvent = await request.json();
 
-  const data = payload.data as CreateRequest;
-  console.log(payload.data);
-  console.log(payload.type);
-  if (payload.type === "user.created") {
-    const userData = {
-      id: payload.data.id,
-      email: payload.data?.email_addresses[0].email_address,
-      firstName: payload.data.first_name,
-      lastName: payload.data.last_name,
-      createdAt: payload.data.created_at,
-      updatedAt: payload.data.updated_at,
-      username: payload.data.username,
-      image: payload.data.image_url,
-    };
+  async function update(collectionName: string, docId: string, data: any) {
     try {
-      await auth.createUser(data);
-      await adminDB.collection("users").doc(payload.data.id).set(userData);
-      return Response.json({ message: "Received" });
+      const docRef = doc(db, collectionName, docId);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const userDocRef = doc(db, "users", data?.user_id);
+        await updateDoc(userDocRef, {
+          status: data.status,
+        });
+      }
     } catch (error) {
-      console.error("Error creating user in Firebase:", error);
-      return Response.json({ message: "Internal Server Error" });
-      // return res.statusCode(500)
+      console.error("Error updating document:", error);
     }
   }
-}
-export async function GET() {
-  return Response.json({ message: "Hello World!" });
+
+  const data = payload.data as CreateRequest;
+  console.log(payload.type);
+  if(payload.type === 'user.deleted'){
+    const uid = payload.data.id as string
+    await deleteUser(uid)
+    return NextResponse.json({ message: `User Auth Deleted from firestore` });
+
+  }
+  if (payload.type === "user.created") {
+    await syncUserToFirebase("active");
+    return NextResponse.json({ message: `User synced to firestore` });
+  }
+  if (payload.type === "session.created") {
+    await update("users", payload.data.user_id, payload.data);
+  }
+  if (
+    payload.type === "session.ended" ||
+    payload.type === "session.revoked" ||
+    payload.type === "session.removed"
+  ) {
+    await update("users", payload.data.user_id, payload.data);
+    return NextResponse.json({ message: `Updated user status` });
+  }
+
+  return NextResponse.json({ message: `Updated database ` });
 }

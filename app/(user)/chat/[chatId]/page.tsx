@@ -12,7 +12,7 @@ import { useSession } from "@clerk/nextjs";
 import { auth} from "@clerk/nextjs/server";
 
 
-
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 type Props = {
   params: {
@@ -21,6 +21,13 @@ type Props = {
 };
 
 async function ChatPage({ params: { chatId } }: Props) {
+  const authw = getAuth()
+  // onAuthStateChanged(authw, async (user) => {
+  //   if (user) {
+  //     const uid = user.uid;
+  //     console.log(user)
+  
+  //   }else{console.log('no user')}})
   const { userId } = auth(); // Get user id from Clerk
   
   // const session = await useSession().session?.id
