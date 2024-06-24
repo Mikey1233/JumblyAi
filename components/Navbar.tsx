@@ -2,7 +2,7 @@
 import { NAV_LINKS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
-import Button from "./ButtonDefault";
+import { Button } from "./ui/button";
 import { useAuth } from "@clerk/nextjs";
 import { signInWithCustomToken } from "firebase/auth";
 import { auth } from "@/firebase";
@@ -61,13 +61,14 @@ const Navbar = () => {
           <Link href={"/chat"}>
              {" "}
             <div className="lg:flexCenter hidden">
-              <Button
+              <Button className="bg-green-700 rounded-full py-7 px-7 text-xl hover:bg-green-800">Get Started</Button>
+              {/* <Button
                 type="button"
                 title="Login"
                 icon="/user.svg"
                 variant="btn_dark_green"
                 title2="/signup"
-              />
+              /> */}
             </div>
            </Link>
         )}

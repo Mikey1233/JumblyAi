@@ -9,7 +9,7 @@ type ButtonProps = {
    title2?: string
 }
 
-const Button = ({ type, title, icon, variant, full,title2}: ButtonProps) => {
+const ButtonDefault = ({ type, title, icon, variant, full,title2}: ButtonProps) => {
   return (
     <button
 
@@ -22,4 +22,4 @@ const Button = ({ type, title, icon, variant, full,title2}: ButtonProps) => {
   )
 }
 
-export default Button
+export default ButtonDefault

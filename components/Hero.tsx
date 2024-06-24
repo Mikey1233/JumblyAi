@@ -1,8 +1,14 @@
+"use client";
 import Image from "next/image";
-import Button from "./ButtonDefault";
+// import Button from "./ButtonDefault";
+import ButtonDefault from "./ButtonDefault";
 import Link from "next/link";
+import useSession from "@clerk/nextjs";
+import { Button } from "./ui/button";
+import { useUser } from "@clerk/nextjs";
 
 const Hero = () => {
+  const { isSignedIn } = useUser();
   return (
     <section className="max-container padding-container flex flex-col gap-20 py-10 pb-32 md:gap-28 lg:py-20 xl:flex-row">
       <div className="hero-map" />
@@ -29,15 +35,42 @@ const Hero = () => {
         </div>
 
         <div className="flex flex-col w-full gap-3 sm:flex-row">
-          <Button type="button" title="Signup For Free" variant="btn_green" />
-          <Link href="https://calendly.com/burkardj3/30min" target="_blank">
-            <Button
+          {isSignedIn ? (
+            <div className="flex gap-2">
+              {" "}
+              <Link href={"/chat"}>
+                <Button
+                  // variant={"outline"}
+                  className="bg-green-600 rounded-full py-7 px-7 text-xl hover:bg-green-800"
+                >
+                  Get Started
+                </Button>
+              </Link>
+              <Link href="https://calendly.com/burkardj3/30min" target="_blank">
+                <ButtonDefault
+                  type="button"
+                  title="Schedule a Demo"
+                  icon="./calendar-black.svg"
+                  variant="btn_white_text"
+                />
+              </Link>
+            </div>
+          ) : (
+            <Link href={'/chat'}>
+              <Button className="bg-green-600 rounded-full py-7 px-7 text-xl hover:bg-green-800">
+                Signup for Free
+              </Button>
+            </Link>
+          )}
+          {/* <Button type="button" title="Signup For Free" variant="btn_green" /> */}
+          {/* <Link href="https://calendly.com/burkardj3/30min" target="_blank"> */}
+          {/* <Button
               type="button"
               title="Schedule a Demo"
               icon="./calendar-black.svg"
               variant="btn_white_text"
-            />
-          </Link>
+            /> */}
+          {/* </Link> */}
         </div>
       </div>
 
