@@ -1,9 +1,7 @@
 "use client";
 import Image from "next/image";
-// import Button from "./ButtonDefault";
 import ButtonDefault from "./ButtonDefault";
 import Link from "next/link";
-import useSession from "@clerk/nextjs";
 import { Button } from "./ui/button";
 import { useUser } from "@clerk/nextjs";
 

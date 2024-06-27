@@ -24,7 +24,7 @@ function IntroPage() {
               </p>
               <div className="mt-8 sm:mt-10">
                 <a
-                  href="#"
+                  href="/chat"
                   title=""
                   className="inline-flex items-center justify-center px-8 py-4 text-base font-normal text-white transition-all duration-200 rounded-full bg-gradient-to-r from-[#38ef7d] to-[#11998e]  hover:contrast-150"
                   role="button"

@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./ButtonDefault";
 import Image from "next/image";
+import Link from "next/link";
 
 const GetApp = () => {
   return (
@@ -12,20 +13,24 @@ const GetApp = () => {
             Available on all web platforms.
           </p>
           <div className="flex w-full flex-col gap-3 whitespace-nowrap xl:flex-row">
-            <Button
-              type="button"
-              title="Join Now"
-              icon="/calendar-black.svg"
-              variant="btn_white"
-              full
-            />
-            <Button
-              type="button"
-              title="Contact Us"
-              icon="/map.svg"
-              variant="btn_dark_green_outline"
-              full
-            />
+            <Link href={"https://calendly.com/burkardj3/30min"} target="blank">
+              <Button
+                type="button"
+                title="Join Now"
+                icon="/calendar-black.svg"
+                variant="btn_white"
+                full
+              />
+            </Link>
+            <Link href={"https://calendly.com/burkardj3/30min"} target="blank">
+              <Button
+                type="button"
+                title="Contact Us"
+                icon="/map.svg"
+                variant="btn_dark_green_outline"
+                full
+              />
+            </Link>
           </div>
         </div>
 

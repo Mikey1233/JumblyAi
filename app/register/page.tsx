@@ -3,17 +3,28 @@
 import React from 'react'
 import { useUser } from "@clerk/nextjs";
 import CheckoutBtn from "@/components/CheckoutBtn";
-// 
+import { useEffect,useState } from 'react';
 
+interface Name {
+  firstName : string
+}
 function page() {
+  // const [name,setName]= useState<Name | null>('user')
+  const [name, setName] = useState<Name | null>(null);
   const { user } = useUser();
+  useEffect(()=> {
+  // const { user } = useUser() ;
+  if (user) {
+    setName({firstName : user.firstName as string});
+  }
+  },[user])
   return (
     <div>
       <section className="py-10 bg-white sm:py-16 lg:py-24">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="max-w-xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-black lg:text-5xl sm:text-5xl">
-              {`Lets handle your Membership ${user?.firstName?.split(" ")[0]}!`}
+              {`Lets handle your Membership ${name?.firstName?.split(" ")[0] || ""}!`}
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-gray-600">
               {"Were 99% sure we have a plan to match 100% of your needs."}
