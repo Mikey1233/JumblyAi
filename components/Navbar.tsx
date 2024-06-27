@@ -12,6 +12,7 @@ import CreateChatButton from "./CreateChatButton";
 import { teardownHeapProfiler } from "next/dist/build/swc";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
+import LanguageSelect from "./LanguageSelect";
 // import SignInWithClerk from "./clerkAuthSign";
 
 const Navbar = () => {
@@ -57,6 +58,7 @@ const Navbar = () => {
             </Link>
           </>
         )} 
+        <LanguageSelect/>
         {!isSignedIn && (
           <Link href={"/chat"}>
              {" "}

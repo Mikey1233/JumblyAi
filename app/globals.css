@@ -141,7 +141,7 @@ body {
 
   /* Get App */
   .get-app {
-    @apply max-container relative flex w-full  flex-col justify-between gap-32 overflow-hidden bg-green-900  bg-cover bg-center bg-no-repeat px-6 py-12 text-white sm:flex-row sm:gap-12 sm:py-24 lg:px-20 xl:max-h-[598px] md:rounded-3xl;
+    @apply max-container relative flex w-full  flex-col justify-between gap-32 overflow-hidden bg-green-900  bg-cover bg-center bg-no-repeat px-6 py-12 text-white sm:flex-row sm:gap-12 sm:py-24 lg:px-20 xl:max-h-[598px] ;
   }
 }
 
@@ -154,4 +154,42 @@ body {
 .hide-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+
+.loader {
+  width: 25px;
+  aspect-ratio: 1;
+  display: grid;
+  margin: 3px; 
+  border-radius: 50%;
+  background:
+    linear-gradient(0deg, rgba(255, 255, 255, 0.5) 30%, transparent 0 70%, rgb(255, 255, 255) 0) 50%/8% 100%,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.25) 30%, transparent 0 70%, rgba(255, 255, 255, 0.75) 0) 50%/100% 8%;
+  background-repeat: no-repeat;
+  animation: l23 1s infinite steps(12);
+}
+
+.loader::before,
+.loader::after {
+  content: "";
+  grid-area: 1 / 1;
+  border-radius: 50%;
+  background: inherit;
+  opacity: 0.915;
+  transform: rotate(30deg);
+}
+
+.loader::after {
+  opacity: 0.83;
+  transform: rotate(60deg);
+}
+.big10 {
+
+  background: url('/img-1.png');
+  /* background-color: red; */
+}
+
+@keyframes l23 {
+  100% { transform: rotate(1turn); }
 }

@@ -71,7 +71,7 @@ function ChatInput({ chatId }: { chatId: string }) {
     const userId = session.user.id as string;
     const userToStore: User = {
       id: userId!,
-      name: session.user.username!,
+      name: session.user.firstName!,
       email: session.user.emailAddresses[0].emailAddress!,
       image: session.user.imageUrl || "",
     };

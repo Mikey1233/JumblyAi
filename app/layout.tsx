@@ -7,6 +7,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
+import SubscriptionProvider from "@/SubscriptionProvider";
 
 export const metadata: Metadata = {
   title: "jumbly.AI",
@@ -22,11 +23,13 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body>
-          <SignInWithClerk />
+          <SubscriptionProvider>
+            <SignInWithClerk />
 
-          <Navbar />
-          <main className="relative overflow-hidden">{children}</main>
-          <Toaster />
+            <Navbar />
+            <main className="relative overflow-hidden">{children}</main>
+            <Toaster />
+          </SubscriptionProvider>
         </body>
       </html>
     </ClerkProvider>

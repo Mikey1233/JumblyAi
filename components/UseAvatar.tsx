@@ -11,7 +11,7 @@ interface UserAvatarProps {
 
 export function UserAvatar({ name, image, className }: UserAvatarProps) {
   return (
-    <div className={"rounded-full"}>
+    <div className={className}>
       {image && (
         <Image
           src={image}

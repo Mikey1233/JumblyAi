@@ -2,14 +2,12 @@
 import { Message, sortedMessagesRef } from "@/lib/converters/Message";
 import { useLanguageStore } from "@/store/store";
 // import { Session } from "next-auth";
-
-import { Session } from "@clerk/clerk-sdk-node";
 import { createRef } from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { useEffect } from "react";
 import { MessageCircleIcon } from "lucide-react";
 // import { UserAvatar } from "./UserAvatar";
-import LoadingSpinner from './LoadingSpinner';
+import LoadingSpinner from "./LoadingSpinner";
 import { UserAvatar } from "./UseAvatar";
 function ChatMessages({
   chatId,
@@ -20,7 +18,7 @@ function ChatMessages({
   initialMessages: Message[];
   session?: any;
 }) {
-  console.log(session)
+  console.log(session);
   const language = useLanguageStore((state) => state.language);
   const messageEndRef = createRef<HTMLDivElement>();
 
@@ -51,17 +49,17 @@ function ChatMessages({
       {messages?.map((message) => {
         const isSender = message.user.id === session;
 
-        return ( 
+        return (
           <div key={message.id} className={`flex my-2 items-end`}>
             <div
-              className={`flex flex-col relative space-y-2 p-4 w-fit line-clamp-1 mx-2 rounded-lg ${
+              className={`flex flex-col relative space-y-1 pt-3 pr-3 pl-3 pb-3 w-fit line-clamp-1 mx-2 rounded-3xl  ${
                 isSender
-                  ? "ml-auto bg-violet-600 text-white rounded-br-none"
+                  ? "ml-auto bg-green-600 text-white rounded-br-none"
                   : "bg-gray-100 dark:text-gray-100 dark:bg-slate-700 rounded-bl-none"
               }`}
             >
               <p
-                className={`text-xs italic font-extralight line-clamp-1 ${
+                className={`text-[12px] italic font-extralight line-clamp-1 ${
                   isSender ? "text-right" : "text-left"
                 }`}
               >
@@ -75,12 +73,13 @@ function ChatMessages({
             <UserAvatar
               name={message.user.name}
               image={message.user.image}
+              // className={`${isSender && "-order-1"}`}
               className={`${!isSender && "-order-1"}`}
             />
           </div>
         );
       })}
-      <div ref={messageEndRef}/>
+      <div ref={messageEndRef} />
     </div>
   );
 }

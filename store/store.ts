@@ -30,7 +30,7 @@ export const LanguagesSupportedMap: Record<LanguagesSupported, string> = {
   yo: "Yoruba",
 };
 
-const LANGUAGES_IN_FREE = 12;
+const LANGUAGES_IN_FREE = 6;
 interface LanguageState {
   language: LanguagesSupported;
   setLanguage: (language: LanguagesSupported) => void;

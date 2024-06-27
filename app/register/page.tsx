@@ -1,29 +1,25 @@
-import Link from "next/link";
-import React from "react";
+"use client";
 
-const Pricing = ({
-  refx,
-  plantext,
-  title,
-}: {
-  refx: string;
-  plantext: string;
-  title: string;
-}) => {
+import React from 'react'
+import { useUser } from "@clerk/nextjs";
+import CheckoutBtn from "@/components/CheckoutBtn";
+// 
+
+function page() {
+  const { user } = useUser();
   return (
-    <section className="py-10 bg-white sm:py-16 lg:py-24">
-      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div className="max-w-xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-black lg:text-5xl sm:text-5xl">
-            {title || "Pricing & Plans"}
-          </h2>
-          <p className="mt-4 text-lg leading-relaxed text-gray-600">
-            {plantext ||
-              "Were 99% sure we have a plan to match 100% of your needs."}
-          </p>
-        </div>
-
-        <div className="hidden mt-16 lg:block">
+    <div>
+      <section className="py-10 bg-white sm:py-16 lg:py-24">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="max-w-xl mx-auto text-center">
+            <h2 className="text-4xl font-bold text-black lg:text-5xl sm:text-5xl">
+              {`Lets handle your Membership ${user?.firstName?.split(" ")[0]}!`}
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-gray-600">
+              {"Were 99% sure we have a plan to match 100% of your needs."}
+            </p>
+          </div>
+          <div className="hidden mt-16 lg:block">
           <table className="w-full">
             <thead>
               <tr>
@@ -184,36 +180,15 @@ const Pricing = ({
 
               <tr>
                 <td className="py-6 pr-4"></td>
+                  <td className="py-6 pr-4"></td>
 
-                <td className="px-4 py-6 text-center">
-                  <Link
-                    href={refx || `pricing`}
-                    title=""
-                    className="inline-flex items-center font-semibold text-green-600 hover:text-green-700"
-                  >
-                    Get Started
-                    <svg
-                      className="w-4 h-4 ml-1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                  </Link>
-                </td>
-
-                <td className="px-4 py-6 text-center text-white bg-yellow-500 rounded-b-xl">
-                  <Link
-                    href={refx || "/pricing"}
-                    title=""
+                <td  className="px-4 py-6 cursor-pointer h-12 text-center text-white bg-yellow-500 rounded-b-xl">
+                  <div
+                    
                     className="inline-flex items-center font-semibold text-white"
                   >
-                    Get Started
+                    <CheckoutBtn/>
+                    {/* Get Started */}
                     <svg
                       className="w-4 h-4 ml-1"
                       xmlns="http://www.w3.org/2000/svg"
@@ -226,17 +201,17 @@ const Pricing = ({
                         clip-rule="evenodd"
                       ></path>
                     </svg>
-                  </Link>
+                  </div>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-      </div>
-      {/* mobile */}
-      {/* mobile mobillllllllllllllllllellllllllllllllllllll */}
-
-      <div className="block mt-12 border-t border-b border-gray-200 divide-y divide-gray-200 lg:hidden">
+      {/* </div> */}
+        
+        </div>
+        {/* mobile */}
+        <div className="block mt-12 border-t border-b border-gray-200 divide-y divide-gray-200 lg:hidden">
         <div className="grid grid-cols-2 text-center divide-x divide-gray-200">
           <div className="px-2 py-2">
             <span className="text-sm font-medium text-blue-600"> Free </span>
@@ -381,15 +356,7 @@ const Pricing = ({
               {" "}
               Per month{" "}
             </span>
-            <Link
-              href={refx || '/pricing'}
-              title=""
-              className="flex items-center justify-center w-full px-1 py-2 mt-5 text-sm text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"
-              role="button"
-            >
-              {" "}
-              Get Started{" "}
-            </Link>
+           
           </div>
 
           <div className="px-1 py-2 sm:px-4">
@@ -399,22 +366,20 @@ const Pricing = ({
               {" "}
               Per month{" "}
             </span>
-            <Link
-              href={refx || '/pricing'}
-              title=""
+            <div  
               className="flex items-center justify-center w-full px-1 py-2 mt-5 text-sm text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"
               role="button"
             >
-              {" "}
-              Get Started{" "}
-            </Link>
+             <CheckoutBtn/>
+            </div>
           </div>
 
          
         </div>
       </div>
-    </section>
+      </section>
+    </div>
   );
-};
+}
 
-export default Pricing;
+export default page;
