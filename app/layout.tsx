@@ -29,14 +29,14 @@ export default function RootLayout({
       {/* <ClerkLoaded> */}
         {/* <html lang="en"> */}
           <body>
-            <SignInWithClerk>
+            {/* <SignInWithClerk> */}
             <SubscriptionProvider>
               <Navbar />
 
               <main className="relative overflow-hidden"> {children}</main>
               <Toaster />
             </SubscriptionProvider>
-            </SignInWithClerk>
+            {/* </SignInWithClerk> */}
            
           </body>
         {/* </html> */}
