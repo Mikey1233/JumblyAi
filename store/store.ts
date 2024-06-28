@@ -7,6 +7,7 @@ export type LanguagesSupported =
   | "de"
   | "fr"
   | "hi"
+  | "ko"
   | "ja"
   | "la"
   | "ru"
@@ -21,6 +22,7 @@ export const LanguagesSupportedMap: Record<LanguagesSupported, string> = {
   de: "German",
   fr: "French",
   hi: "Hindi",
+  ko: "korean",
   ja: "Japanese",
   la: "Latin",
   ru: "Russian",

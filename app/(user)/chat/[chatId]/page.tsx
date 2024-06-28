@@ -52,7 +52,7 @@ async function ChatPage({ params: { chatId } }: Props) {
       {/* chat membersBadge */}
       <ChatMemberShipBadge chatId={chatId} />
       {/* chat Messages */}
-      <div className=" flex-1">
+      <div className="pb-10 flex-1">
         <ChatMessages
           chatId={chatId}
           session={userId}

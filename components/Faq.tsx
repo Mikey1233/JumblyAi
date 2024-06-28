@@ -1,4 +1,6 @@
 import React from "react";
+import AccordionItem from "./AccordionItem";
+import Link from "next/link";
 
 function Faq() {
   return (
@@ -16,181 +18,35 @@ function Faq() {
           </div>
 
           <div className="max-w-3xl mx-auto mt-8 space-y-4 md:mt-16">
-            <div className="transition-all duration-200 bg-white border border-gray-200 shadow-lg cursor-pointer hover:bg-gray-50">
-              <button
-                type="button"
-                className="flex items-center justify-between w-full px-4 py-5 sm:p-6"
-              >
-                <span className="flex text-lg font-semibold text-black">
-                  {" "}
-                  How to create an account?{" "}
-                </span>
+            <AccordionItem
+              title="How to create an account?"
+              content="Creating an account with JumblyAi is quick and easy. Sign up with your email follow the prompts, and start enjoying seamless multilingual chat translations"
+            />
 
-                <svg
-                  className="w-6 h-6 text-gray-400 rotate-180"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
+            <AccordionItem
+              title="How can I make a payment with Stripe?"
+              content="To make a payment with Stripe, simply enter your payment details at checkout and follow the onscreen instructions. It's secure, quick, and easy."
+            />
+            <AccordionItem
+              title=" Can I cancel my plan?"
+              content="Yes, you can cancel your payment within 24 hours of making it. Contact our support team to assist with the cancellation process."
+            />
 
-              <div className="px-4 pb-5 sm:px-6 sm:pb-6">
-                <p>
-                  Creating an account with JumblyAi is quick and easy. Sign up
-                  with your{" "}
-                  <span className="text-blue-600 transition-all duration-200 hover:underline">
-                    email
-                  </span>
-                  , follow the prompts, and start enjoying seamless multilingual
-                  chat translations.{" "}
-                </p>
-              </div>
-            </div>
-
-            <div className="transition-all duration-200 bg-white border border-gray-200 cursor-pointer hover:bg-gray-50">
-              <button
-                type="button"
-                className="flex items-center justify-between w-full px-4 py-5 sm:p-6"
-              >
-                <span className="flex text-lg font-semibold text-black">
-                  {" "}
-                  How can I make payment using Paypal?{" "}
-                </span>
-
-                <svg
-                  className="w-6 h-6 text-gray-400"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-
-              <div className="hidden px-4 pb-5 sm:px-6 sm:pb-6">
-                <p>
-                  Amet minim mollit non deserunt ullamco est sit{" "}
-                  <a
-                    href="#"
-                    title=""
-                    className="text-blue-600 transition-all duration-200 hover:underline"
-                  >
-                    aliqua dolor
-                  </a>{" "}
-                  do amet sint. Velit officia consequat duis enim velit mollit.
-                </p>
-              </div>
-            </div>
-
-            <div className="transition-all duration-200 bg-white border border-gray-200 cursor-pointer hover:bg-gray-50">
-              <div className="">
-                <button
-                  type="button"
-                  className="flex items-center justify-between w-full px-4 py-5 sm:p-6"
-                >
-                  <span className="flex text-lg font-semibold text-black">
-                    {" "}
-                    Can I cancel my plan?{" "}
-                  </span>
-
-                  <svg
-                    className="w-6 h-6 text-gray-400"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-
-                <div className="hidden px-4 pb-5 sm:px-6 sm:pb-6">
-                  <p>
-                    Amet minim mollit non deserunt ullamco est sit{" "}
-                    <a
-                      href="#"
-                      title=""
-                      className="text-blue-600 transition-all duration-200 hover:underline"
-                    >
-                      aliqua dolor
-                    </a>{" "}
-                    do amet sint. Velit officia consequat duis enim velit
-                    mollit.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="transition-all duration-200 bg-white border border-gray-200 cursor-pointer hover:bg-gray-50">
-              <button
-                type="button"
-                className="flex items-center justify-between w-full px-4 py-5 sm:p-6"
-              >
-                <span className="flex text-lg font-semibold text-black">
-                  {" "}
-                  How can I reach to support?{" "}
-                </span>
-
-                <svg
-                  className="w-6 h-6 text-gray-400"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-
-              <div className="hidden px-4 pb-5 sm:px-6 sm:pb-6">
-                <p>
-                  Amet minim mollit non deserunt ullamco est sit{" "}
-                  <a
-                    href="#"
-                    title=""
-                    className="text-blue-600 transition-all duration-200 hover:underline"
-                  >
-                    aliqua dolor
-                  </a>{" "}
-                  do amet sint. Velit officia consequat duis enim velit mollit.
-                </p>
-              </div>
-            </div>
+            <AccordionItem
+              title="How can I reach to support?"
+              content="You can reach our support team 24/7 via email or live chat. We're here to help with any questions or issues you may have."
+            />
           </div>
 
           <p className="text-center text-gray-600 textbase mt-9">
             Didn’t find the answer you are looking for?{" "}
-            <a
-              href="#"
+            <Link
+              href="https://calendly.com/burkardj3/30min"
               title=""
               className="font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 focus:text-blue-700 hover:underline"
             >
               Contact our support
-            </a>
+            </Link>
           </p>
         </div>
       </section>

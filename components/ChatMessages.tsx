@@ -50,7 +50,7 @@ function ChatMessages({
         const isSender = message.user.id === session;
 
         return (
-          <div key={message.id} className={`flex my-2 items-end`}>
+          <div key={message.id} className={`flex my-2 items-end `}>
             <div
               className={`flex flex-col relative space-y-1 pt-3 pr-3 pl-3 pb-3 w-fit line-clamp-1 mx-2 rounded-3xl  ${
                 isSender

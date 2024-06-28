@@ -9,19 +9,20 @@ import {
 } from "@clerk/nextjs";
 import { MessageSquareIcon } from "lucide-react";
 import CreateChatButton from "./CreateChatButton";
-import { useEffect } from "react";
-import LanguageSelect from "./LanguageSelect";
+// import LanguageSelect from "./LanguageSelect";
+import UpgradeBanner from "./UpgradeBanner";
 
 
 const Navbar = () => {
   const { isSignedIn } = useSession();
   return (
-    <nav className="flex justify-between max-container  padding-container z-30 py-5 sticky top-0 bg-white">
+    <div >
+ <nav className="flex justify-between max-container sticky  padding-container z-30 py-5  top-0 bg-white">
       <Link href="/">
         <Image src="/jumbly.ai-logo.svg" alt="logo" width={200} height={40} />
       </Link>
 
-      <div className="flex gap-10 items-center justify-between ">
+      <div className="flex gap-5 md:gap-10 items-center justify-between ">
         {isSignedIn && (
           <>
             <CreateChatButton />
@@ -31,7 +32,7 @@ const Navbar = () => {
             </Link>
           </>
         )}
-        <LanguageSelect />
+        {/* <LanguageSelect /> */}
         {!isSignedIn && (
           <Link href={"/chat"} >
             {" "}
@@ -47,6 +48,9 @@ const Navbar = () => {
         </SignedIn>
       </div>
     </nav>
+  <UpgradeBanner/>
+    </div>
+   
   );
 };
 

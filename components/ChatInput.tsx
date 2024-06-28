@@ -83,7 +83,8 @@ function ChatInput({ chatId }: { chatId: string }) {
 
   }
   return (
-    <div className="fixed w-full bottom-0 z-50  dark:bg-gray-900">
+    // <div className="fixed w-full bottom-0 z-50  dark:bg-gray-900">
+      <div className="fixed  w-full bottom-0 z-50 bg-transparent dark:bg-gray-900">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -110,7 +111,9 @@ function ChatInput({ chatId }: { chatId: string }) {
           </Button>
         </form>
       </Form>
-    </div>
+      </div>
+     
+    // {/* </div> */}
   );
 }
 
