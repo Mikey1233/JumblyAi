@@ -37,7 +37,7 @@ const Navbar = () => {
           <Link href={"/chat"} >
             {" "}
             <div className="lg:flexCenter ">
-              <Button className="bg-green-700 rounded-full py-7 px-7 text-xl hover:bg-green-800">
+              <Button className="bg-green-700 text-sm rounded-full py-5 px-5 md:py-7 md:px-7 md:text-xl hover:bg-green-800">
                 Get Started
               </Button>
             </div>
