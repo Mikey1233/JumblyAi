@@ -1,5 +1,5 @@
 import { WebhookEvent } from "@clerk/nextjs/server";
-import { doc, updateDoc, getDoc, setDoc } from "firebase/firestore";
+import { doc, updateDoc, getDoc } from "firebase/firestore";
 import { CreateRequest } from "firebase-admin/auth";
 import { syncUserToFirebase } from "@/lib/syncUsers";
 import { db } from "@/firebase";
