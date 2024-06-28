@@ -36,7 +36,7 @@ const Navbar = () => {
         {!isSignedIn && (
           <Link href={"/chat"} >
             {" "}
-            <div className="lg:flexCenter hidden">
+            <div className="lg:flexCenter ">
               <Button className="bg-green-700 rounded-full py-7 px-7 text-xl hover:bg-green-800">
                 Get Started
               </Button>
