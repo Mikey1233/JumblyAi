@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 // import SignInWithClerk from "@/components/clerkAuthSign";
-import SignInWithClerk from "@/pages/clerkAuthSign";
+// import SignInWithClerk from "@/pages/clerkAuthSign";
 
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Toaster } from "@/components/ui/toaster";
 import SubscriptionProvider from "@/SubscriptionProvider";
+import dynamic from "next/dynamic";
+
+const SignInWithClerk = dynamic(() => import("@/pages/clerkAuthSign"), {
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   title: "jumbly.AI",
@@ -19,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider >
       <html lang="en">
         <body>
           <SubscriptionProvider>
