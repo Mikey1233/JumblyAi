@@ -5,7 +5,7 @@ import { signInWithCustomToken } from "firebase/auth";
 import { auth } from "@/firebase";
 
 const SignInWithClerk = () => {
-  const { isSignedIn, session } = useSession();
+  const { isSignedIn, session} = useSession();
 
   useEffect(() => {
     const signInToFirebase = async () => {
