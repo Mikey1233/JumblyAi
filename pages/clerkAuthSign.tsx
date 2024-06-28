@@ -1,3 +1,15 @@
+import React from 'react'
+
+function ClerkAuthSign() {
+  return (
+    <div>
+      Hello
+    </div>
+  )
+}
+
+export default ClerkAuthSign
+
 // "use client";
 // import { useEffect } from "react";
 // import {  useSession } from "@clerk/nextjs";
