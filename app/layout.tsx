@@ -25,10 +25,10 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider >
+            <SignInWithClerk />
       <html lang="en">
         <body>
           <SubscriptionProvider>
-            <SignInWithClerk />
 
             <Navbar />
             <main className="relative overflow-hidden">{children}</main>

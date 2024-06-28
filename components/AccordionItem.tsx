@@ -29,9 +29,9 @@ const AccordionItem = ({
           stroke="currentColor"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
             d="M19 9l-7 7-7-7"
           />
         </svg>
@@ -45,22 +45,7 @@ const AccordionItem = ({
         <p className="p-3">{content}</p>
       </div>
     </div>
-    //   <div className="border-b">
-    //     <button
-    //       className="flex justify-between w-full px-4 py-2 text-left"
-    //       onClick={() => setIsOpen(!isOpen)}
-    //     >
-    //       <span>{title}</span>
-    //       <span>{isOpen ? '-' : '+'}</span>
-    //     </button>
-    //     <div
-    //       className={`px-4 pb-2 transition-all duration-300 ${
-    //         isOpen ? 'max-h-96' : 'max-h-0 overflow-hidden'
-    //       }`}
-    //     >
-    //       {content}
-    //     </div>
-    //   </div>
+  
   );
 };
 
