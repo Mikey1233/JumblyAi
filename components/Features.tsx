@@ -1,5 +1,3 @@
-import { FEATURES } from "@/constants";
-import Image from "next/image";
 import React from "react";
 import {
   icon_onboarding,

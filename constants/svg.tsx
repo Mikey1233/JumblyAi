@@ -233,7 +233,7 @@ const icon_sales = (
       strokeWidth="2"
       strokeMiterlimit="10"
       strokeLinecap="round"
-      stroke-linejoin="round"
+      strokeLinejoin="round"
     />
     <path
       d="M28 1H37V10"

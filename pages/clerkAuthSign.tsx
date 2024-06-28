@@ -1,10 +1,10 @@
 "use client";
 import { useEffect } from "react";
-import { useSession } from "@clerk/nextjs";
+import { ClerkProvider, useSession } from "@clerk/nextjs";
 import { signInWithCustomToken } from "firebase/auth";
 import { auth } from "@/firebase";
 
-const SignInWithClerk = () => {
+const SignInWithClerk = ({ children }: { children: React.ReactNode }) => {
   const { isSignedIn, session} = useSession();
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const SignInWithClerk = () => {
     signInToFirebase();
   }, [isSignedIn, session]);
 
-  return null;
+  return <>{children}</>;
 };
 
 export default SignInWithClerk;

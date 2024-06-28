@@ -7,6 +7,7 @@ import React, { useEffect } from "react";
 import { subscriptionRef } from "./lib/converters/Subscription";
 import { useSubscription } from "./store/store";
 import { Subscription } from "./types/Subscription";
+import { signInWithCustomToken } from "./firebase";
 
 
 function SubscriptionProvider({ children }: { children: React.ReactNode }) {
@@ -15,6 +16,9 @@ function SubscriptionProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (!session) return;
     const id = session?.user.id as string;
+    /////////////////////////////////////////////
+   
+    //////////////////////////////////
     return onSnapshot(
       subscriptionRef(id),
       (snapshot: { empty: any; docs: { data: () => Subscription | null; }[]; }) => {

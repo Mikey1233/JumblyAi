@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkLoaded, ClerkProvider } from "@clerk/nextjs";
 // import SignInWithClerk from "@/components/clerkAuthSign";
 // import SignInWithClerk from "@/pages/clerkAuthSign";
 
@@ -24,22 +24,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    // <ClerkProvider >
-      <html lang="en">
-        <body>
-          <ClerkProvider >
-          <SignInWithClerk />
+    <html lang="en">
+<ClerkProvider>
+      {/* <ClerkLoaded> */}
+        {/* <html lang="en"> */}
+          <body>
+            <SignInWithClerk>
+            <SubscriptionProvider>
+              <Navbar />
 
-          <SubscriptionProvider>
+              <main className="relative overflow-hidden"> {children}</main>
+              <Toaster />
+            </SubscriptionProvider>
+            </SignInWithClerk>
+           
+          </body>
+        {/* </html> */}
+      {/* </SignInWithClerk> */}
+      {/* </ClerkLoaded> */}
+      
+    </ClerkProvider>
+    </html>
 
-            <Navbar />
-            <main className="relative overflow-hidden">{children}</main>
-            <Toaster />
-          </SubscriptionProvider>
-          </ClerkProvider>
-          
-        </body>
-      </html>
-    // </ClerkProvider>
+    
   );
 }
