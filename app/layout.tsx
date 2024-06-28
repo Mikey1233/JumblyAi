@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ClerkLoaded, ClerkProvider } from "@clerk/nextjs";
+import {  ClerkProvider } from "@clerk/nextjs";
 // import SignInWithClerk from "@/components/clerkAuthSign";
 // import SignInWithClerk from "@/pages/clerkAuthSign";
 
@@ -9,9 +9,9 @@ import { Toaster } from "@/components/ui/toaster";
 import SubscriptionProvider from "@/SubscriptionProvider";
 import dynamic from "next/dynamic";
 
-const SignInWithClerk = dynamic(() => import("@/pages/clerkAuthSign"), {
-  ssr: false,
-});
+// const SignInWithClerk = dynamic(() => import("@/pages/clerkAuthSign"), {
+//   ssr: false,
+// });
 
 export const metadata: Metadata = {
   title: "jumbly.AI",

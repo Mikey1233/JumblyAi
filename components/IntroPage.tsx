@@ -1,7 +1,7 @@
 import React from "react";
 import phone from "../public/phone.png";
 import Image from "next/image";
-import UpgradeBanner from "./UpgradeBanner";
+
 
 function IntroPage() {
   return (
