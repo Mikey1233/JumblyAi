@@ -1,18 +1,19 @@
 "use client";
-import React, { useEffect } from "react";
-import { useAuth } from "@clerk/clerk-react";
+import  { useEffect } from "react";
+// import { useAuth } from "@clerk/clerk-react";
+import { useAuth } from "@clerk/nextjs";
 import { signInWithCustomToken } from "firebase/auth";
 import { auth } from "@/firebase";
 const SignInWithClerk = () => {
-  const { isSignedIn, sessionId, userId, getToken } = useAuth();
+  const { isSignedIn, sessionId} = useAuth();
 
   useEffect(() => {
     const signInToFirebase = async () => {
       if (isSignedIn) {
         const id = sessionId;
-        console.log(id);
+        // console.log(id);
         try {
-          // Fetching Firebase custom token
+          
 
           const tokenResponse = await fetch("/api/route", {
             method: "POST",
