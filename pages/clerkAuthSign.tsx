@@ -1,16 +1,16 @@
 "use client";
 import  { useEffect } from "react";
 // import { useAuth } from "@clerk/clerk-react";
-import { useAuth } from "@clerk/nextjs";
+import { useSession } from "@clerk/nextjs";
 import { signInWithCustomToken } from "firebase/auth";
 import { auth } from "@/firebase";
 const SignInWithClerk = () => {
-  const { isSignedIn, sessionId} = useAuth();
+  const { isSignedIn, session} = useSession();
 
   useEffect(() => {
     const signInToFirebase = async () => {
       if (isSignedIn) {
-        const id = sessionId;
+        const id = session.id;
         // console.log(id);
         try {
           
@@ -35,7 +35,7 @@ const SignInWithClerk = () => {
     };
 
     signInToFirebase();
-  }, [isSignedIn, sessionId]);
+  }, [isSignedIn, session]);
   return null;
 };
 
