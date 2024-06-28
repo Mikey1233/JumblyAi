@@ -26,7 +26,7 @@ export async function POST(request: Request) {
   }
 
   const data = payload.data as CreateRequest;
-  console.log(payload.type);
+  // console.log(payload.type);
   if(payload.type === 'user.deleted'){
     const uid = payload.data.id as string
     await deleteUser(uid)

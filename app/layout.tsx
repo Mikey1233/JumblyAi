@@ -24,18 +24,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider >
-            <SignInWithClerk />
+    // <ClerkProvider >
       <html lang="en">
         <body>
+          <ClerkProvider>
           <SubscriptionProvider>
+          <SignInWithClerk />
 
             <Navbar />
             <main className="relative overflow-hidden">{children}</main>
             <Toaster />
           </SubscriptionProvider>
+          </ClerkProvider>
+          
         </body>
       </html>
-    </ClerkProvider>
+    // </ClerkProvider>
   );
 }
